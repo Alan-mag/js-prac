@@ -62,7 +62,7 @@ function reduce(array, combine, start) {
     return current;
 }
 
-console.log(reduce([1, 2 , 3, 4], function(a, b) {
+console.log([1, 2 , 3, 4].reduce(function(a, b) {
     return a + b;
 }, 0));
 
@@ -77,3 +77,18 @@ function unique(elem, index, self) {
 }
 
 console.log(unique);
+
+// Chapter questions
+var arrays = [[1, 2, 3], [4, 5], [6]];
+
+console.log(arrays.reduce(function(a, b){
+    return a.concat(b);
+}, []));
+
+var differences = ancestry.filter(function(person) {
+    return byName[person.mother] != null; 
+}).map(function(person) {
+    return person.born - byName[person.mother].born;
+});
+
+console.log(average(differences));
