@@ -7,6 +7,8 @@
 //     }
 // }
 
+var ancestry = require("./ancestry.js");
+
 function forEach(array, action) {
     for (var i = 0; i < array.length; i++)
         action(array[i]);
@@ -23,7 +25,7 @@ function filter(array, test) {
       passed.push(array[i]);
   }
   return passed;
-}
+};
 
 var numbers = ["4","5","6","4"];
 
@@ -68,15 +70,15 @@ console.log([1, 2 , 3, 4].reduce(function(a, b) {
 
 // get unique elements from array
 // -- make this abstract --
-var unique = numbers.filter(function(elem, index, self) {
-    return index == self.indexOf(elem);
-});
+// var unique = numbers.filter(function(elem, index, self) {
+//     return index == self.indexOf(elem);
+// });
 
-function unique(elem, index, self) {
-    return index == self.indexOf(elem);
-}
+// function unique(elem, index, self) {
+//     return index == self.indexOf(elem);
+// }
 
-console.log(unique);
+// console.log(unique);
 
 // Chapter questions
 var arrays = [[1, 2, 3], [4, 5], [6]];
@@ -92,3 +94,5 @@ var differences = ancestry.filter(function(person) {
 });
 
 console.log(average(differences));
+
+//var chocolate = ancestry.filter
