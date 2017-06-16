@@ -97,6 +97,8 @@ console.log(average(differences));
 
 //var chocolate = ancestry.filter
 
+
+// ancestors question
 function average(array) {
   function plus(a, b) { return a + b; }
   return array.reduce(plus) / array.length;
@@ -133,6 +135,11 @@ function every(array, predicate) {
   }
   return true;
 }
+
+console.log(every([NaN, NaN, NaN], isNaN));
+console.log(every([NaN, NaN, 4], isNaN));
+console.log(some([NaN, 3, 4], isNaN));
+console.log(some([2, 3, 4], isNaN));
 
 function some(array, predicate) {
   for (var i = 0; i < array.length; i++) {
