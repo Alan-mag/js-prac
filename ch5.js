@@ -29,8 +29,8 @@ function filter(array, test) {
 
 var numbers = ["4","5","6","4"];
 
-console.log(numbers.filter(function(number) {
-    return number == 4;
+console.log(numbers.filter(function(number) {  // this is using a numbers filter function in the array prototype (I believe), 
+    return number == 4;                        // not the function I wrote before this
 }));
 
 
