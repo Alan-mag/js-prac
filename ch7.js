@@ -38,8 +38,8 @@ Grid.prototype.isInside = function (vector) {
            vector.y >= 0 && vector.y < this.height;
 };
 
-Grid.prototype.get = function (vector) {
-    return this.space[vector.x + this.width * vector.y]; // why add width?
+Grid.prototype.get = function (vector) {                 // explain this function
+    return this.space[vector.x + this.width * vector.y]; // why add width? check out representing space section
 };
 
 Grid.prototype.set = function (vector, value) {
@@ -311,11 +311,11 @@ PlantEater.prototype.act = function(view) {
         return {type: "move", direction: space};
 }
 
-function Predator() {
+function Tiger() {
     this.energy = 20;
 }
 
-Predator.prototype.act = function(view) {
+Tiger.prototype.act = function(view) {
     var space = view.find(" ");
     if(this.energy > 60 && space)
         return {type: "reproduce", direction: space};
