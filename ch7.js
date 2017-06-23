@@ -39,7 +39,7 @@ Grid.prototype.isInside = function (vector) {
 };
 
 Grid.prototype.get = function (vector) {                 // explain this function
-    return this.space[vector.x + this.width * vector.y]; // why add width? check out representing space section
+    return this.space[vector.x + this.width * vector.y]; // added width to get correct space -> look at grid example
 };
 
 Grid.prototype.set = function (vector, value) {
