@@ -344,3 +344,5 @@ var valley = new LifelikeWorld(
    "O": PlantEater,
    "*": Plant}
 );
+
+/// Add review for chp 1-7
