@@ -7,7 +7,15 @@
 //     }
 // }
 
+const fs = require('fs');
+fs.readFile('./ancestry.js', 'utf-8', (err, data) => {
+  if(err) { throw err; }
+  //console.log('data: ', data);
+});
+
 var ancestry = require("./ancestry.js");
+
+console.log(ancestry);
 
 function forEach(array, action) {
     for (var i = 0; i < array.length; i++)
