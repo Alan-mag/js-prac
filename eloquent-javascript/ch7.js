@@ -1,3 +1,5 @@
+// Project: Electronic Life
+
 "use strict";
 
 var plan = ["############################",

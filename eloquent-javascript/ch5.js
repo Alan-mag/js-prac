@@ -1,11 +1,4 @@
-// abstraction of function on a loop
-// Example:
-
-// function logEach(array) {
-//     for (var i = 0; i < array.length; i++) {
-//         console.log(array[i]);
-//     }
-// }
+// HIGHER-ORDER FUNCTIONS
 
 const fs = require('fs');
 fs.readFile('./ancestry.js', 'utf-8', (err, data) => {
@@ -13,9 +6,12 @@ fs.readFile('./ancestry.js', 'utf-8', (err, data) => {
   //console.log('data: ', data);
 });
 
-var ancestry = require("./ancestry.js");
+var ancestryString = require("./ancestry.js");
+var ancestry = JSON.parse(ancestryString);
 
-console.log(ancestry);
+//console.log(ancestry);
+//console.log(typeof ancestry);
+console.log(Array.isArray(ancestry));
 
 function forEach(array, action) {
     for (var i = 0; i < array.length; i++)
@@ -76,26 +72,21 @@ console.log([1, 2 , 3, 4].reduce(function(a, b) {
     return a + b;
 }, 0));
 
-// get unique elements from array
-// -- make this abstract --
-// var unique = numbers.filter(function(elem, index, self) {
-//     return index == self.indexOf(elem);
-// });
-
-// function unique(elem, index, self) {
-//     return index == self.indexOf(elem);
-// }
-
-// console.log(unique);
-
 // Chapter questions
 var arrays = [[1, 2, 3], [4, 5], [6]];
+
+// To be able to go from a parent’s name to the actual object that represents this person, 
+// we first build up an object that associates names with people.
+var byName = {};
+ancestry.forEach(function(person) {
+    byName[person.name] = person;
+});
 
 console.log(arrays.reduce(function(a, b){
     return a.concat(b);
 }, []));
 
-var differences = ancestry.filter(function(person) {
+var differences = ancestry.filter(function(person) {    
     return byName[person.mother] != null; 
 }).map(function(person) {
     return person.born - byName[person.mother].born;
