@@ -1,0 +1,22 @@
+body {
+    background: blanchedalmond;
+}
+
+#paint-app {
+  margin-left: auto;
+  margin-right: auto;
+  width: 500px;
+}
+
+canvas {
+    background: white;
+    border-radius: 5px;
+}
+
+.toolbar {
+    background: white;
+    padding: 10px;
+    width: 480px;
+    border: 1px solid gainsboro;
+    border-radius: 5px;
+}
