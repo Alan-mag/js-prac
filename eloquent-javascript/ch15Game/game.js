@@ -425,3 +425,64 @@ CanvasDisplay.prototype.clearDisplay = function() {
         this.cx.fillStyle = "rgb(52,166,251)";
     this.cx.fillRect(0, 0, this.canvas.width, this.canvas.height);
 }
+
+var otherSprites = document.createElement("img");
+otherSprites.src = "img/sprites.png";
+
+CanvasDisplay.prototype.drawBackground = function() {
+    var view = this.viewport;
+    var xStart = Math.floor(view.left);
+    var xEnd = Math.ceil(view.left + view.width);
+    var yStart = Math.floor(view.top);
+    var yEnd = Math.ceil(view.top + view.height);
+
+    for (var y = yStart; y < yEnd; y++) {
+        for (var x = xStart; x < xEnd; x++) {
+            var tile = this.level.grid[y][x];
+            if (tile == null) continue;
+            var screenX = (x - view.left) * scale;
+            var screenY = (y - view.top) * scale;
+            var tileX = tile == "lava" ? scale : 0;
+            this.cx.drawImage(otherSprites, tileX, 0, scale, scale, screenX, screenY, scale, scale);
+        }
+    }
+}
+
+var playerSprites = document.createElement("img");
+playerSprites.src = "img/player.png";
+var playerXOverlap = 4;
+
+CanvasDisplay.prototype.drawPlayer = function(x, y, width, height) {
+    var sprite = 8, player = this.level.player;
+    width += playerXOverlap * 2;
+    x -= playerXOverlap;
+    if (player.speed.x != 0)
+        this.flipPlayer = player.speed.x < 0;
+    
+    if (player.speed.y != 0)
+        sprite = 9;
+    else if (player.speed.x != 0)
+        sprite = Math.floor(this.animationTime * 12) % 8;
+    
+    this.cx.save();
+    if (this.flipPlayer)
+        flipHorizontally(this.cx, x + width / 2);
+    
+    this.cx.drawImage(playerSprites, sprite * width, 0, width, height, x, y, width, height);
+    this.cx.restore();
+};
+
+CanvasDisplay.prototype.drawActors = function() {
+    this.level.actors.forEach(function(actor) {
+        var width = actor.size.x * scale;
+        var height = actor.size.y * scale;
+        var x = (actor.pos.x - this.viewport.left) * scale;
+        var y = (actor.pos.y - this.viewport.top) * scale;
+        if (actor.type == "player") {
+            this.drawPlayer(x, y, width, height);
+        } else {
+            var tileX = (actor.type == "coin" ? 2 : 1) * scale;
+            this.cx.drawImage(otherSprites, tileX, 0, width, height, x, y, width, height);
+        }
+    }, this);
+};

@@ -4,7 +4,8 @@ $( document ).ready(function() {
 });
 
 
-// DOM element creator helper function
+// DOM element creator 
+// [helper function]
 function elt(name, attributes) {
     var node = document.createElement(name);
     if(attributes) {
