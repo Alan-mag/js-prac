@@ -201,7 +201,7 @@ function randomPointInRadius(radius) {
     }
 }
 
-
+// select div 
 var appDiv = document.querySelector('#paint-app');
 createPaint(appDiv);
 
