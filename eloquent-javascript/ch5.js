@@ -31,7 +31,7 @@ function filter(array, test) {
   return passed;
 };
 
-var numbers = ["4","5","6","4"];
+var numbers = [4, 5, 6, 4];
 
 console.log(numbers.filter(function(number) {  // this is using a numbers filter function in the array prototype (I believe), 
     return number == 4;                        // not the function I wrote before this
@@ -48,16 +48,20 @@ function map(array, transform) {
     var mapped = [];
     for (var i = 0; i < array.length; i++) {
         mapped.push(transform(array[i]));
-    return mapped;
     }
+    return mapped;
 }
 
-var overFive = numbers.filter(function(number) {
-    return number > 5;
+var overThree = numbers.filter(function(number) {
+    return number > 3;
 });
 
-console.log(map(overFive, function(number) {
+console.log(map(overThree, function(number) {
     return number;
+}));
+
+console.log(map([1, 2, 3], function(number) {
+    return number * 2;
 }));
 
 // reduce method

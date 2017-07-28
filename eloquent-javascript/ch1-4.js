@@ -1,4 +1,4 @@
-// Your code here.
+// chp 1 - 4
 function range(start, end, step) {
   if (step == null) step = 1;
   var array = [];
@@ -26,6 +26,8 @@ console.log(range(5, 2, -1));
 
 console.log(sum(range(1, 10)));
 
+console.log(sum(range(1, 100)));
+
 function reverseArray(array) {
   var output = [];
   for (var i = array.length - 1; i >= 0; i--)
@@ -36,9 +38,9 @@ function reverseArray(array) {
 function reverseArrayInPlace(array) {
   for (var i = 0; i < Math.floor(array.length / 2); i++) {  // array.length = 11
     var old = array[i];                                     // old = 0
-    array[i] = array[array.length - 1 - i];                 // 
+    array[i] = array[array.length - 1 - i];                 // 0 = array[10]
     array[array.length - 1 - i] = old;                      // last element in array now 0 <-- first element
-  }
+  }                                                         // array[10] = 0
   return array;
 }
 
@@ -90,3 +92,5 @@ console.log(prepend(10, prepend(20, null)));
 // → {value: 10, rest: {value: 20, rest: null}}
 console.log(nth(arrayToList([10, 20, 30]), 1));
 // 20
+
+console.log(listToArray({value: 10, rest: {value: 20, rest: null}}));
