@@ -64,6 +64,24 @@ console.log(map([1, 2, 3], function(number) {
     return number * 2;
 }));
 
+var names = ["Alan", "Owen", "Isabel", "Ian", "Roy"];
+
+function firstLetter(word) {
+    return word.charAt(0);
+};
+
+console.log(firstLetter("Owen"));
+
+var beginsWithI = names.filter(function(name) {
+    if (firstLetter(name) == "I") {
+        return name;
+    }
+})
+
+console.log(map(beginsWithI, function(name) {
+    return name;
+}));
+
 // reduce method
 function reduce(array, combine, start) {
     var current = start;
@@ -71,6 +89,8 @@ function reduce(array, combine, start) {
         current = combine(current, array[i]);
     return current;
 }
+
+
 
 console.log([1, 2 , 3, 4].reduce(function(a, b) {
     return a + b;
