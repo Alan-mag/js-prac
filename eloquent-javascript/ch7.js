@@ -254,8 +254,9 @@ actionTypes.move = function(critter, vector, action) {
     var dest = this.checkDestination(action, vector);
     if (dest == null ||
         critter.energy <= 1 ||
-        this.grid.get(dest) != null)
+        this.grid.get(dest) != null) {
       return false;
+    }
     critter.energy -= 1;
     this.grid.set(vector, null);
     this.grid.set(dest, critter);
