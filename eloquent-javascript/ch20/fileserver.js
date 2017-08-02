@@ -80,3 +80,5 @@ http.createServer(function(request, response) {
         }
     }
 }).listen(8000);
+
+// Update exercises
