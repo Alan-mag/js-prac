@@ -82,3 +82,14 @@ http.createServer(function(request, response) {
 }).listen(8000);
 
 // Update exercises
+
+// install figlet npm
+//
+var figlet = require('figlet');
+figlet.text("Helo World!", function(error, data) {
+    if (error) {
+        console.error(error);
+    } else {
+        console.log(data);
+    }
+});
