@@ -82,3 +82,11 @@ http.createServer(function(request, response) {
 }).listen(8000);
 
 // Update exercises
+
+// Content Negotiation
+
+// Fixing a leak
+
+// Creating Directories
+
+// A public space on the web
