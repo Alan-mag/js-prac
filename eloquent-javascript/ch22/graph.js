@@ -163,3 +163,9 @@ function runLayout(implementation, graph) {
 }
 
 // exercises
+
+// Pathfinding
+
+// Timing
+
+// Optimizing
