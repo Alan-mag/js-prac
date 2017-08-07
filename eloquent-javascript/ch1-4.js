@@ -45,6 +45,7 @@ function reverseArrayInPlace(array) {
 }
 
 console.log(reverseArray(["A", "B", "C"]));
+console.log(reverseArray(['Ben', 'Jerry', 'Batman', 'Robin']));
 var arrayValue = [1, 2, 3, 4, 5];
 console.log(reverseArrayInPlace(arrayValue));
 
