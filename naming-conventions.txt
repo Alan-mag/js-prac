@@ -1,0 +1,1 @@
+** Update this page with Naming Conventions for javascript**
